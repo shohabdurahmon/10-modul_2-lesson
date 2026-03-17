@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDP Junior - Django Pagination</title>
+    <title>PDP Junior - Django Pagination & Deploy</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
 
         .slide-inner {
             width: 100%;
-            margin: auto; /* Vertikal va gorizontal markazlashtirish uchun xavfsiz usul */
+            margin: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -188,20 +188,17 @@
                 </div>
             </div>
 
-            <!-- Slide 3: The Pagination Problem (Visualized) -->
+            <!-- Slide 3: The Pagination Problem -->
             <div class="slide bg-white relative">
                 <div class="slide-inner max-w-7xl relative z-10 pt-4">
                     <div class="inline-block px-4 py-1 rounded-full bg-red-100 text-red-600 font-bold tracking-widest uppercase mb-4 text-xs border border-red-200 mx-auto"><i class="fas fa-question-circle mr-1"></i> Muammo va Yechim</div>
                     <h2 class="text-3xl md:text-5xl font-black text-pdp-dark mb-4 text-center">Nega bizga Pagination kerak?</h2>
 
                     <div class="flex flex-col lg:flex-row w-full gap-8 mt-6 opacity-0" style="animation: slideInUp 0.8s forwards 0.2s;">
-
                         <!-- Problem Side -->
                         <div class="flex-1 bg-red-50/50 p-6 md:p-8 rounded-3xl border border-red-100 flex flex-col items-center justify-center relative overflow-hidden">
                             <div class="bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full absolute top-4 left-4">PaginationSiz (Xato usul)</div>
                             <h3 class="text-lg md:text-xl font-black text-red-900 mt-6 text-center">Agar bazada yuzlab loyiha bo'lsa...</h3>
-
-                            <!-- Shaking Stack -->
                             <div class="relative w-48 h-48 flex justify-center mt-6 animate-shake">
                                 <div class="absolute top-0 w-48 h-24 bg-white border border-gray-300 rounded-xl shadow-sm z-50 flex items-center justify-center text-xs font-bold text-gray-400">Loyiha #1</div>
                                 <div class="absolute top-2 w-48 h-24 bg-gray-100 border border-gray-300 rounded-xl shadow-sm z-40 transform scale-95"></div>
@@ -212,24 +209,19 @@
                             </div>
                             <p class="text-sm text-red-700 mt-8 text-center bg-red-100 p-3 rounded-xl border border-red-200 w-full">Sayt qotib qoladi va trafikni ko'p yeydi.</p>
                         </div>
-
-                        <!-- VS Circle -->
                         <div class="hidden lg:flex items-center justify-center w-16 -mx-8 z-20">
                             <div class="w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center font-black text-gray-400 text-lg">VS</div>
                         </div>
-
                         <!-- Solution Side -->
                         <div class="flex-1 bg-teal-50/50 p-6 md:p-8 rounded-3xl border border-teal-100 flex flex-col items-center justify-center relative">
                             <div class="bg-pdp-cyan text-pdp-dark text-[10px] font-bold px-3 py-1 rounded-full absolute top-4 left-4">Pagination bilan (To'g'ri usul)</div>
                             <h3 class="text-lg md:text-xl font-black text-teal-900 mt-6 text-center">Qismlarga (sahifalarga) bo'lamiz!</h3>
-
                             <div class="w-full flex flex-col items-center justify-center mt-6 gap-6">
                                 <div class="flex gap-3">
                                     <div class="w-20 h-20 bg-white border border-teal-200 rounded-xl shadow-md flex items-center justify-center text-teal-500 text-xl"><i class="fas fa-image"></i></div>
                                     <div class="w-20 h-20 bg-white border border-teal-200 rounded-xl shadow-md flex items-center justify-center text-teal-500 text-xl"><i class="fas fa-image"></i></div>
                                     <div class="w-20 h-20 bg-white border border-teal-200 rounded-xl shadow-md flex items-center justify-center text-teal-500 text-xl"><i class="fas fa-image"></i></div>
                                 </div>
-
                                 <div class="flex gap-2 bg-white p-2 rounded-full shadow-sm border border-gray-100">
                                     <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs text-gray-400">‹</div>
                                     <div class="w-6 h-6 rounded-full bg-pdp-cyan flex items-center justify-center text-[10px] text-pdp-dark font-bold">1</div>
@@ -248,37 +240,22 @@
             <div class="slide bg-[#1E1F22]">
                 <div class="slide-inner max-w-6xl relative z-10 pt-4">
                     <h2 class="text-3xl md:text-5xl font-black text-white mb-4 text-center">1-Qadam: Backend sozlamasi</h2>
-                    <p class="text-gray-400 text-lg mb-8 text-center max-w-3xl mx-auto">Djangoning `ListView` klasi biz uchun hamma og'ir ishni bajaradi. Shunchaki unga "Bitta sahifada nechta loyiha chiqsin?" deb aytishimiz yetarli.</p>
-
+                    <p class="text-gray-400 text-lg mb-8 text-center max-w-3xl mx-auto">Djangoning `ListView` klasi biz uchun hamma og'ir ishni bajaradi.</p>
                     <div class="w-full max-w-4xl bg-[#2B2D30] rounded-xl shadow-2xl overflow-hidden border border-[#43454A] opacity-0 relative mx-auto" style="animation: slideInUp 0.8s forwards 0.2s;">
-
-                        <!-- Tooltip -->
-                        <div class="absolute top-[140px] right-4 md:right-10 bg-front-blue text-white text-[11px] md:text-xs px-4 py-2 rounded-lg shadow-lg max-w-[180px] font-sans before:content-[''] before:absolute before:-left-2 before:top-3 before:border-4 before:border-transparent before:border-r-front-blue z-20 animate-bounce">
-                            Bu kod yuzlab loyihalarni avtomat 3 tadan qilib bo'lib beradi!
-                        </div>
-
-                        <!-- Header -->
                         <div class="bg-[#3C3F41] px-4 py-3 border-b border-[#242527] flex items-center gap-3">
                             <div class="flex gap-1.5"><div class="w-3 h-3 rounded-full bg-[#FF5F56]"></div><div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div><div class="w-3 h-3 rounded-full bg-[#27C93F]"></div></div>
-                            <div class="flex items-center gap-2 bg-[#1E1F22] px-4 py-1 rounded text-xs text-gray-300">
-                                <i class="fab fa-python text-blue-400"></i> views.py
-                            </div>
+                            <div class="flex items-center gap-2 bg-[#1E1F22] px-4 py-1 rounded text-xs text-gray-300"><i class="fab fa-python text-blue-400"></i> views.py</div>
                         </div>
-
-                        <!-- Code -->
                         <div class="p-6 md:p-8 font-mono text-[14px] md:text-[16px] leading-loose text-[#A9B7C6] bg-[#1E1F22] overflow-x-auto custom-scrollbar">
                             <span class="code-keyword">from</span> django.views.generic <span class="code-keyword">import</span> ListView<br>
                             <span class="code-keyword">from</span> .models <span class="code-keyword">import</span> Portfolio<br><br>
-
                             <span class="code-keyword">class</span> <span class="code-class text-yellow-300">PortfolioView</span>(ListView):<br>
                             <span class="pl-4 md:pl-8">template_name = <span class="code-string">'portfolio.html'</span></span><br>
                             <span class="pl-4 md:pl-8">context_object_name = <span class="code-string">'portfolios'</span></span><br>
-
                             <div class="bg-blue-500/10 border-l-4 border-blue-500 pl-3 md:pl-7 py-2 my-2 highlight-pulse">
                                 <span class="font-bold text-white">paginate_by = <span class="text-orange-400">3</span></span>
                                 <span class="text-gray-500 text-[12px] italic ml-2 hidden sm:inline"># Sehr shu yerda yuz beradi 🪄</span>
                             </div>
-
                             <span class="pl-4 md:pl-8">queryset = Portfolio.objects.all()</span>
                         </div>
                     </div>
@@ -289,121 +266,52 @@
             <div class="slide bg-[#F0F4F8]">
                 <div class="slide-inner max-w-[1400px] relative z-10 pt-2">
                     <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-pdp-dark mb-2 text-center">2-Qadam: Frontend UI va Jinja</h2>
-                    <p class="text-gray-500 text-[15px] mb-6 text-center">Siz bergan HTML va Jinja kodlar orqali chiroyli dizaynni jonlantiramiz.</p>
-
-                    <div class="flex flex-col lg:flex-row w-full gap-6 lg:gap-8 opacity-0" style="animation: slideInUp 0.8s forwards 0.2s;">
-
-                        <!-- LEFT: Code Snippet (Matches the exact provided code) -->
+                    <div class="flex flex-col lg:flex-row w-full gap-6 lg:gap-8 mt-6 opacity-0" style="animation: slideInUp 0.8s forwards 0.2s;">
+                        <!-- Code -->
                         <div class="w-full lg:w-1/2 bg-[#1E1F22] rounded-2xl shadow-xl border border-gray-800 flex flex-col overflow-hidden">
                             <div class="bg-[#3C3F41] px-4 py-3 flex items-center gap-2 border-b border-[#242527]">
                                 <i class="fab fa-html5 text-orange-400"></i> <span class="text-gray-300 text-xs font-mono">portfolio.html</span>
                             </div>
                             <div class="p-4 md:p-6 font-mono text-[12px] md:text-[13px] leading-relaxed text-[#A9B7C6] overflow-x-auto custom-scrollbar flex-1 whitespace-pre">
-<span class="code-bracket">&lt;</span><span class="text-front-blue">nav</span> <span class="text-green-400">class</span><span class="code-bracket">=</span><span class="code-string">"pagination"</span> <span class="text-green-400">aria-label</span><span class="code-bracket">=</span><span class="code-string">"Portfolio pagination"</span><span class="code-bracket">&gt;</span>
-
+<span class="code-bracket">&lt;</span><span class="text-front-blue">nav</span> <span class="text-green-400">class</span><span class="code-bracket">=</span><span class="code-string">"pagination"</span><span class="code-bracket">&gt;</span>
 <div class="bg-jinja-red/10 border-l-2 border-jinja-red pl-2 my-1"><span class="code-dtl text-jinja-red">{% if page_obj.has_previous %}</span>
-    <span class="code-bracket">&lt;</span><span class="text-front-blue">a</span> <span class="text-green-400">class</span><span class="code-bracket">=</span><span class="code-string">"pg-btn pg-btn--icon"</span> <span class="text-green-400">href</span><span class="code-bracket">=</span><span class="code-string">"?page={{ page_obj.previous_page_number }}"</span><span class="code-bracket">&gt;</span><span class="text-white">‹</span><span class="code-bracket">&lt;/</span><span class="text-front-blue">a</span><span class="code-bracket">&gt;</span>
+    <span class="code-bracket">&lt;</span><span class="text-front-blue">a</span> <span class="text-green-400">href</span><span class="code-bracket">=</span><span class="code-string">"?page={{ page_obj.previous_page_number }}"</span><span class="code-bracket">&gt;</span><span class="text-white">‹</span><span class="code-bracket">&lt;/</span><span class="text-front-blue">a</span><span class="code-bracket">&gt;</span>
 <span class="code-dtl text-jinja-red">{% endif %}</span></div>
 <div class="bg-yellow-500/10 border-l-2 border-yellow-500 pl-2 my-1"><span class="code-dtl text-yellow-500">{% for page in page_obj.paginator.page_range %}</span>
     <span class="code-dtl text-yellow-500">{% if page == page_obj.number %}</span>
-        <span class="code-bracket">&lt;</span><span class="text-front-blue">a</span> <span class="text-green-400">class</span><span class="code-bracket">=</span><span class="code-string">"pg-btn pg-btn--active"</span> <span class="text-green-400">href</span><span class="code-bracket">=</span><span class="code-string">"#"</span><span class="code-bracket">&gt;</span><span class="text-white">{{ page }}</span><span class="code-bracket">&lt;/</span><span class="text-front-blue">a</span><span class="code-bracket">&gt;</span>
+        <span class="code-bracket">&lt;</span><span class="text-front-blue">a</span> <span class="text-green-400">class</span><span class="code-bracket">=</span><span class="code-string">"active"</span><span class="code-bracket">&gt;</span><span class="text-white">{{ page }}</span><span class="code-bracket">&lt;/</span><span class="text-front-blue">a</span><span class="code-bracket">&gt;</span>
     <span class="code-dtl text-yellow-500">{% else %}</span>
-        <span class="code-bracket">&lt;</span><span class="text-front-blue">a</span> <span class="text-green-400">class</span><span class="code-bracket">=</span><span class="code-string">"pg-btn"</span> <span class="text-green-400">href</span><span class="code-bracket">=</span><span class="code-string">"?page={{ page }}"</span><span class="code-bracket">&gt;</span><span class="text-white">{{ page }}</span><span class="code-bracket">&lt;/</span><span class="text-front-blue">a</span><span class="code-bracket">&gt;</span>
+        <span class="code-bracket">&lt;</span><span class="text-front-blue">a</span> <span class="text-green-400">href</span><span class="code-bracket">=</span><span class="code-string">"?page={{ page }}"</span><span class="code-bracket">&gt;</span><span class="text-white">{{ page }}</span><span class="code-bracket">&lt;/</span><span class="text-front-blue">a</span><span class="code-bracket">&gt;</span>
     <span class="code-dtl text-yellow-500">{% endif %}</span>
 <span class="code-dtl text-yellow-500">{% endfor %}</span></div>
-<div class="bg-green-500/10 border-l-2 border-green-500 pl-2 my-1"><span class="code-dtl text-green-500">{% if page_obj.has_next %}</span>
-    <span class="code-bracket">&lt;</span><span class="text-front-blue">a</span> <span class="text-green-400">class</span><span class="code-bracket">=</span><span class="code-string">"pg-btn pg-btn--icon"</span> <span class="text-green-400">href</span><span class="code-bracket">=</span><span class="code-string">"?page={{ page_obj.next_page_number }}"</span><span class="code-bracket">&gt;</span><span class="text-white">›</span><span class="code-bracket">&lt;/</span><span class="text-front-blue">a</span><span class="code-bracket">&gt;</span>
-<span class="code-dtl text-green-500">{% endif %}</span></div>
 <span class="code-bracket">&lt;/</span><span class="text-front-blue">nav</span><span class="code-bracket">&gt;</span></div>
                         </div>
-
-                        <!-- RIGHT: Recreated UI from user's image -->
+                        <!-- UI Recreated -->
                         <div class="w-full lg:w-1/2 flex flex-col gap-4">
-
-                            <!-- The Recreated UI Box -->
-                            <div class="bg-white p-5 md:p-8 rounded-[2rem] shadow-xl border border-gray-100 w-full overflow-hidden">
-                                <h3 class="text-2xl md:text-3xl font-black text-[#072F37] mb-6 md:mb-8 flex justify-between items-center">
-                                    O‘quvchilarimizning qilgan ishlari
-                                    <span class="bg-[#00D1D1] text-[#072F37] text-[10px] md:text-xs px-4 md:px-5 py-2 md:py-2.5 rounded-full hover:bg-teal-400 transition-colors cursor-pointer whitespace-nowrap hidden sm:block">Barchasini ko'rish</span>
-                                </h3>
-
-                                <!-- Detailed Cards from Image -->
-                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
-                                    <!-- Memory Game Card -->
-                                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col transform hover:-translate-y-1 transition-transform">
-                                        <div class="w-full h-28 bg-gradient-to-br from-orange-400 to-purple-600 rounded-xl mb-3 flex items-center justify-center relative overflow-hidden shadow-inner">
-                                             <div class="grid grid-cols-4 gap-[2px] w-14 h-14 bg-slate-900/50 p-[3px] rounded-md">
-                                               <div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div>
-                                               <div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div>
-                                               <div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div><div class="bg-slate-800 rounded-[2px]"></div>
-                                            </div>
-                                        </div>
-                                        <h4 class="font-black text-[16px] text-[#072F37] mb-2 leading-tight">Memory Game</h4>
-                                        <div class="flex items-center gap-2 mb-4">
-                                            <div class="w-5 h-5 bg-[#072F37] rounded-full flex items-center justify-center text-white text-[8px] shrink-0"><i class="fas fa-user"></i></div>
-                                            <p class="text-[10px] text-gray-600 font-bold truncate">Muhammadali Sagdiyyev</p>
-                                        </div>
-                                        <button class="bg-[#00D1D1] text-pdp-dark font-black text-xs px-5 py-2 rounded-full mt-auto self-start">Ko'rish</button>
+                            <div class="bg-white p-5 md:p-8 rounded-[2rem] shadow-xl border border-gray-100">
+                                <h3 class="text-2xl font-black text-[#072F37] mb-6">O‘quvchilar loyihalari</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                                    <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100">
+                                        <div class="w-full h-24 bg-orange-400 rounded-xl mb-2"></div>
+                                        <p class="font-bold text-xs">Memory Game</p>
                                     </div>
-
-                                    <!-- MegaMark Card -->
-                                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col transform hover:-translate-y-1 transition-transform">
-                                        <div class="w-full h-28 bg-white border border-gray-200 rounded-xl mb-3 flex flex-col overflow-hidden relative shadow-inner">
-                                            <div class="w-full h-3 bg-blue-50 flex items-center px-2 gap-1 border-b border-gray-100">
-                                                <div class="w-1 h-1 bg-blue-400 rounded-full"></div><div class="w-4 h-[3px] bg-gray-200 rounded-full"></div>
-                                            </div>
-                                            <div class="flex-1 bg-[#232F3E] m-1.5 rounded flex items-center px-3 justify-between">
-                                                <div class="text-white text-[7px] font-bold leading-tight">SMART WEARABLE.<br><span class="text-gray-400 text-[5px]">UP TO 80% OFF</span></div>
-                                                <div class="w-6 h-6 bg-gray-700 rounded border border-gray-600 flex items-center justify-center"><i class="fas fa-clock text-blue-400 text-[10px]"></i></div>
-                                            </div>
-                                        </div>
-                                        <h4 class="font-black text-[16px] text-[#072F37] mb-2 leading-tight">MegaMark</h4>
-                                        <div class="flex items-center gap-2 mb-4">
-                                            <div class="w-5 h-5 bg-[#072F37] rounded-full flex items-center justify-center text-white text-[8px] shrink-0"><i class="fas fa-user"></i></div>
-                                            <p class="text-[10px] text-gray-600 font-bold truncate">Hamidulla Mamadalimov</p>
-                                        </div>
-                                        <button class="bg-[#00D1D1] text-pdp-dark font-black text-xs px-5 py-2 rounded-full mt-auto self-start">Ko'rish</button>
+                                    <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100">
+                                        <div class="w-full h-24 bg-blue-400 rounded-xl mb-2"></div>
+                                        <p class="font-bold text-xs">MegaMark</p>
                                     </div>
-
-                                    <!-- Online Market Card -->
-                                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col transform hover:-translate-y-1 transition-transform">
-                                        <div class="w-full h-28 bg-[#0F0C08] rounded-xl mb-3 relative overflow-hidden flex items-center justify-center shadow-inner border border-gray-800">
-                                            <div class="absolute inset-0 bg-gradient-to-r from-red-900/40 to-orange-900/40"></div>
-                                            <i class="fas fa-gamepad text-orange-500 text-3xl relative z-10 shadow-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]"></i>
-                                        </div>
-                                        <h4 class="font-black text-[16px] text-[#072F37] mb-2 leading-tight">Online market</h4>
-                                        <div class="flex items-center gap-2 mb-4">
-                                            <div class="w-5 h-5 bg-[#3B1509] rounded-full flex items-center justify-center text-white text-[8px] shrink-0"><i class="fas fa-user"></i></div>
-                                            <p class="text-[10px] text-gray-600 font-bold truncate">Shaxriyor Zayniddinov</p>
-                                        </div>
-                                        <button class="bg-[#00D1D1] text-pdp-dark font-black text-xs px-5 py-2 rounded-full mt-auto self-start">Ko'rish</button>
+                                    <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100">
+                                        <div class="w-full h-24 bg-teal-400 rounded-xl mb-2"></div>
+                                        <p class="font-bold text-xs">Online Market</p>
                                     </div>
                                 </div>
-
-                                <!-- UI Pagination Exact Match -->
-                                <nav class="flex items-center justify-center gap-2 md:gap-3">
-                                    <a href="#" class="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white text-[#072F37] font-bold text-lg shadow-sm flex items-center justify-center border border-gray-100 hover:bg-gray-50 transition-colors">‹</a>
-
-                                    <a href="#" class="w-10 md:w-12 h-10 md:h-12 rounded-full bg-[#00D1D1] text-[#072F37] font-black text-sm md:text-lg shadow-[0_4px_15px_rgba(0,209,209,0.3)] flex items-center justify-center transform scale-105">1</a>
-
-                                    <a href="#" class="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white text-[#072F37] font-bold text-sm md:text-lg shadow-sm flex items-center justify-center border border-gray-100 hover:bg-gray-50 transition-colors">2</a>
-
-                                    <a href="#" class="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white text-[#072F37] font-bold text-sm md:text-lg shadow-sm flex items-center justify-center border border-gray-100 hover:bg-gray-50 transition-colors">3</a>
-
-                                    <a href="#" class="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white text-[#072F37] font-bold text-lg shadow-sm flex items-center justify-center border border-gray-100 hover:bg-gray-50 transition-colors">›</a>
+                                <nav class="flex items-center justify-center gap-2">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center">‹</a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-[#00D1D1] text-[#072F37] font-black flex items-center justify-center">1</a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center">2</a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center">›</a>
                                 </nav>
                             </div>
-
-                            <!-- Explanations Box -->
-                            <div class="bg-indigo-50 p-5 rounded-2xl border border-indigo-100 w-full">
-                                <ul class="space-y-3 text-[13px] text-indigo-900 font-medium">
-                                    <li class="flex items-start gap-3"><span class="bg-jinja-red text-white w-5 h-5 rounded flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-sm">1</span> <b>has_previous / has_next:</b> Agar orqaga/oldinga sahifa yo'q bo'lsa, o'qchalar yashirinadi.</li>
-                                    <li class="flex items-start gap-3"><span class="bg-yellow-500 text-white w-5 h-5 rounded flex items-center justify-center text-[10px] shrink-0 mt-0.5 shadow-sm">2</span> <b>paginator.page_range:</b> Jami sahifalar sonini ro'yxat qilib beradi (masalan: [1, 2, 3]).</li>
-                                    <li class="flex items-start gap-3"><span class="bg-pdp-cyan text-[#072F37] w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5 shadow-sm">3</span> <b>pg-btn--active:</b> Sikldagi raqam biz turgan sahifaga (page_obj.number) teng bo'lsa, ko'k rangli aktiv dizaynini beramiz.</li>
-                                </ul>
-                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -420,7 +328,6 @@
                     <h2 class="text-3xl md:text-5xl font-black text-white mb-10">Loyiha 100% tugadi!<br><span class="text-pdp-cyan">Endi navbat sizga...</span></h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl text-left">
-
                         <!-- Homework Card -->
                         <div class="bg-[#1E1F22] p-8 rounded-3xl border border-gray-700 shadow-2xl relative overflow-hidden transform hover:-translate-y-2 transition-transform">
                             <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-500/10 rounded-bl-full flex items-start justify-end p-4 text-yellow-500 text-3xl"><i class="fas fa-tasks"></i></div>
@@ -434,19 +341,19 @@
                             </ul>
                         </div>
 
-                        <!-- Independent Project Card -->
+                        <!-- Independent Project Card (MODIFIED) -->
                         <div class="bg-gradient-to-br from-[#0F172A] to-[#1E293B] p-8 rounded-3xl border border-pdp-cyan/50 shadow-[0_0_30px_rgba(0,209,209,0.1)] relative overflow-hidden transform hover:-translate-y-2 transition-transform">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-pdp-cyan/10 rounded-bl-full flex items-start justify-end p-4 text-pdp-cyan text-3xl"><i class="fas fa-rocket"></i></div>
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-pdp-cyan/10 rounded-bl-full flex items-start justify-end p-4 text-pdp-cyan text-3xl"><i class="fas fa-cloud-upload-alt"></i></div>
                             <h3 class="text-2xl font-black text-white mb-4 flex items-center gap-3">
-                                <span class="w-10 h-10 rounded-full bg-pdp-cyan/20 text-pdp-cyan flex items-center justify-center text-lg">2</span> Mustaqil Loyiha
+                                <span class="w-10 h-10 rounded-full bg-pdp-cyan/20 text-pdp-cyan flex items-center justify-center text-lg">2</span> Mustaqil Loyiha & Deploy
                             </h3>
                             <ul class="space-y-4 text-gray-300 font-medium text-[14px] md:text-[15px] mt-6 relative z-10">
-                                <li class="flex gap-3"><i class="fas fa-star text-brand-yellow mt-1"></i> <div>O'zingiz uchun mutlaqo yangi <b>Shaxsiy Portfolio</b> loyihasini yarating.</div></li>
-                                <li class="flex gap-3"><i class="fas fa-star text-brand-yellow mt-1"></i> <div>O'z dizayningiz (Frontend) va o'z bazangizni (Backend) noldan quring. <br><span class="text-pdp-cyan font-bold text-xs bg-pdp-cyan/10 px-2 py-1 rounded inline-block mt-2">💡 Frontend qismini qurishda sun'iy intellektdan (AI) foydalanishga to'liq ruxsat beriladi!</span></div></li>
-                                <li class="flex gap-3"><i class="fas fa-star text-brand-yellow mt-1"></i> <div>Keyingi darsgacha loyihani <b>100% full tugatib</b> kelish tavsiya etiladi!</div></li>
+                                <li class="flex gap-3"><i class="fas fa-star text-brand-yellow mt-1"></i> <div>Mana shu <b>PDP Junior</b> loyihasini serverga deploy qilamiz.</div></li>
+                                <li class="flex gap-3"><i class="fas fa-star text-brand-yellow mt-1"></i> <div>Tayyor loyihani <b>PythonAnywhere</b> cloud servisiga bir marta muvaffaqiyatli yuklang (Deploy qiling).</div></li>
+                                <li class="flex gap-3"><i class="fas fa-star text-brand-yellow mt-1"></i> <div>Saytingiz ishlayotgan <b>havolani (link)</b> va natijasini tekshirish uchun ustozga tashlab qo'ying!</div></li>
+                                <li class="mt-2"><span class="text-pdp-cyan font-bold text-xs bg-pdp-cyan/10 px-2 py-1 rounded inline-block">💡 Maslahat: Deploy jarayonida xatolik bo'lsa, dars materialiga qayting.</span></li>
                             </ul>
                         </div>
-
                     </div>
 
                     <button onclick="document.getElementById('btn-next').click()" class="mt-10 bg-gray-800 text-gray-300 px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-gray-700 transition-all border border-gray-600 flex items-center gap-2">
@@ -457,26 +364,17 @@
 
             <!-- Slide 7: Conclusion -->
             <div class="slide bg-pdp-dark text-white text-center flex items-center justify-center relative overflow-hidden">
-
                 <div class="slide-inner z-10 relative mt-0">
                     <div class="relative w-40 md:w-48 h-40 md:h-48 mx-auto mb-10 group">
                         <div class="absolute inset-0 bg-pdp-cyan/20 rounded-full animate-pulse blur-xl"></div>
                         <div class="absolute inset-2 bg-gradient-to-br from-front-blue to-django-light rounded-full shadow-[0_0_40px_rgba(0,209,209,0.5)] flex items-center justify-center border-4 border-white/20 transform group-hover:scale-105 transition-transform duration-500 z-10">
-                            <i class="fas fa-check-circle text-6xl md:text-7xl text-white transform group-hover:scale-110 transition-transform duration-500"></i>
-                        </div>
-
-                        <div class="absolute inset-[-20px] rounded-full border border-dashed border-white/20 animate-[spin_10s_linear_infinite]">
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#1E1F22] rounded-full flex items-center justify-center"><i class="fab fa-python text-django-light text-sm"></i></div>
-                            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-[#1E1F22] rounded-full flex items-center justify-center"><i class="fab fa-html5 text-orange-500 text-sm"></i></div>
-                            <div class="absolute top-1/2 -left-3 -translate-y-1/2 w-8 h-8 bg-[#1E1F22] rounded-full flex items-center justify-center"><i class="fas fa-database text-purple-400 text-sm"></i></div>
+                            <i class="fas fa-check-circle text-6xl md:text-7xl text-white"></i>
                         </div>
                     </div>
-
                     <h1 class="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter leading-tight text-white">Barakalla, Dasturchi!</h1>
                     <p class="text-lg md:text-xl text-gray-300 font-light mt-4 max-w-2xl mx-auto leading-relaxed">
-                        Siz Django orqali yirik ma'lumotlarni <b>Pagination</b> vositasida chiroyli, tartibli va tezkor qilib chiqarishni mukammal darajada o'rgandingiz!
+                        Siz Django orqali yirik ma'lumotlarni <b>Pagination</b> vositasida chiqarishni o'rgandingiz va uni real serverga joylashni o'zlashtirdingiz!
                     </p>
-
                     <button id="btn-restart" class="mt-10 md:mt-12 bg-pdp-cyan text-pdp-dark px-8 md:px-10 py-3 md:py-4 rounded-full font-black uppercase tracking-widest hover:bg-teal-400 hover:scale-105 transition-all shadow-xl shadow-pdp-cyan/30 flex items-center gap-2 mx-auto">
                         <i class="fas fa-redo-alt"></i> Boshidan Ko'rish
                     </button>
@@ -498,7 +396,6 @@
                 wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
                 counter.innerText = `${currentSlide + 1} / ${total}`;
 
-                // Reset animations on the current slide to make them replay
                 const currentSlideEl = document.querySelectorAll('.slide')[currentSlide];
                 const animatedElements = currentSlideEl.querySelectorAll('[style*="animation"]');
 
@@ -522,7 +419,6 @@
                 if(e.key === 'ArrowLeft') prevSlide();
             });
 
-            // Touch support (Swipe for mobile)
             let touchStartX = 0;
             const touchArea = document.getElementById('touchArea');
             touchArea.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {passive: true});
@@ -532,7 +428,6 @@
                 if (touchEndX - touchStartX > 50) prevSlide();
             }, {passive: true});
 
-            // Init
             update();
         })();
     </script>
